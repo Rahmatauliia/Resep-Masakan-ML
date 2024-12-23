@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+  color: red;
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background-color: red;
+}
+
+.tiptap h1 {
+  @apply text-3xl;
+}
+
+.tiptap h2 {
+  @apply text-2xl;
+}
+
+.tiptap h3 {
+  @apply text-xl;
+}
+
+.tiptap h4 {
+  @apply text-lg;
+}
+
+.tiptap h5 {
+  @apply text-base;
+}
+
+.tiptap h6 {
+  @apply text-sm;
+}
+
+.tiptap ul,
+.tiptap ol {
+  list-style: revert;
+  padding: revert;
+}
+
+.my-tiptap h1 {
+  @apply text-3xl;
+}
+
+.my-tiptap h2 {
+  @apply text-2xl;
+}
+
+.my-tiptap h3 {
+  @apply text-xl;
+}
+
+.my-tiptap h4 {
+  @apply text-lg;
+}
+
+.my-tiptap h5 {
+  @apply text-base;
+}
+
+.my-tiptap h6 {
+  @apply text-sm;
+}
+
+.my-tiptap ul,
+.my-tiptap ol {
+  list-style: revert;
+  padding: revert;
+}
