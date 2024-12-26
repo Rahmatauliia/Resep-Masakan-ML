@@ -18,6 +18,7 @@ import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import axios from "axios";
 import MySwal from "@/lib/sweetAlert";
+import API_URL from "@/utils/api-url";
 
 const validationSchema = z.object({
   nama: z.string().min(1, "Nama kategori harus diisi"),
@@ -36,7 +37,7 @@ export default function AddKategori({ setAddKategori, setData }) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/kategori",
+        `${API_URL}/api/kategori`,
         {
           nama: data.nama,
         },

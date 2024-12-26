@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { FaHeart } from "react-icons/fa";
 import { generateHTML } from "@tiptap/core";
 import generateConfig from "@/lib/configTiptap";
+import API_URL from "@/utils/api-url";
 
 export default function Card({ resep, className }) {
   console.log(resep)
@@ -23,7 +24,7 @@ export default function Card({ resep, className }) {
         <span className="bg-white inline-block absolute top-0 right-0 p-2 rounded-bl-lg rounded-tr-lg"><FaHeart className="text-2xl text-red-600 inline me-2" />{resep.jumlah_favorit}</span>
         <Image
           alt="gambar"
-          src={`http://127.0.0.1:8000/storage/images/${resep.gambar}`}
+          src={`${API_URL}/storage/images/${resep.gambar}`}
           width={500}
           height={500}
           className="w-full h-[50%] object-cover rounded-t-lg"

@@ -25,6 +25,7 @@ import AddResep from "./addResep";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
 import axios from "axios";
 import LoadingScreen from "@/components/LoadingScreen";
+import API_URL from "@/utils/api-url";
 
 export function DataTable({ columns }) {
   const { refresh, loading, setLoading } = useContext(RefreshDataTableContext);
@@ -36,16 +37,16 @@ export function DataTable({ columns }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/api/resep");
+      const response = await axios.get(`${API_URL}/api/resep`);
       setData(response.data.data);
     };
     const fetchDaerah = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/api/daerah");
+      const response = await axios.get(`${API_URL}/api/daerah`);
       setDataDaerah(response.data.data);
     };
 
     const fetchKategori = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/api/kategori");
+      const response = await axios.get(`${API_URL}/api/kategori`);
       setDataKategori(response.data.data);
     };
     fetchData();

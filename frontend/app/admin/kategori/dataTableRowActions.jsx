@@ -8,6 +8,7 @@ import MySwal from "@/lib/sweetAlert";
 import axios from "axios";
 import { useContext } from "react";
 import { KategoriContext } from "./data-table";
+import API_URL from "@/utils/api-url";
 
 export default function DataTableRowActions({ row }) {
   const { setEditKategori, setDataEditKategori, setAddKategori, setRefresh } =
@@ -25,7 +26,7 @@ export default function DataTableRowActions({ row }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         await axios.delete(
-          `http://127.0.0.1:8000/api/kategori/${row.original.id}`
+          `${API_URL}/api/kategori/${row.original.id}`
         );
         MySwal.fire({
           title: "Berhasil",

@@ -3,6 +3,7 @@
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,7 +16,7 @@ export default function SearchPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/search?search=" + search
+          `${API_URL}/api/search?search=${search}`
         );
         setReseps(response.data.data);
         console.log(response.data);

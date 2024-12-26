@@ -2,6 +2,7 @@
 
 import Card from "@/components/Card";
 import { useAuth } from "@/context/AuthContext";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -13,7 +14,7 @@ export default function Rekomendasi({ data }) {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:5000/products?usr=" + user.id
+            `${API_URL}:5000/products?usr=${user.id}`
           );
           setReseps(response.data.data);
           console.log(response.data);

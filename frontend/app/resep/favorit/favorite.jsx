@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "@/components/Card";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -9,7 +10,7 @@ export default function Favorite() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/favorit", {
+        const response = await axios.get(`${API_URL}/api/favorit`, {
           headers: {
             Authorization: `Bearer ${window.localStorage.getItem(
               "accessTokenResep"

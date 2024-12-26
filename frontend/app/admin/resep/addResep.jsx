@@ -28,6 +28,7 @@ import InputImage from "@/components/InputImage";
 import axios from "axios";
 import MySwal from "@/lib/sweetAlert";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
+import API_URL from "@/utils/api-url";
 
 const MAX_FILE_SIZE = 5000000;
 const ACCEPTED_IMAGE_TYPES = [
@@ -105,7 +106,7 @@ export default function AddResep({ setAddResep, dataDaerah, dataKategori }) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/resep",
+        `${API_URL}/api/resep`,
         {
           nama: data.nama,
           bahan: data.bahan,

@@ -22,6 +22,7 @@ import { FaPlus } from "react-icons/fa";
 import axios from "axios";
 import AddKategori from "./addKategori";
 import EditKategori from "./editKategori";
+import API_URL from "@/utils/api-url";
 
 export const KategoriContext = createContext();
 
@@ -37,7 +38,7 @@ export function DataTable({ columns }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/kategori");
+        const response = await axios.get(`${API_URL}/api/kategori`);
         setData(response.data.data);
       } catch (error) {
         console.log(error);

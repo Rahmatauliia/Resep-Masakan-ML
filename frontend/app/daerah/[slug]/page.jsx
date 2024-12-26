@@ -1,12 +1,13 @@
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 
 export default async function DaerahPage({ params }) {
   try {
     const responseResep = await fetch(
-      "http://127.0.0.1:8000/api/resep/daerah/" + params.slug,
+      `${API_URL}/api/resep/daerah/${params.slug}`,
       {
         cache: "no-store",
       }

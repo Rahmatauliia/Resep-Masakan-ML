@@ -22,6 +22,7 @@ import InputImage from "@/components/InputImage";
 import axios from "axios";
 import MySwal from "@/lib/sweetAlert";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
+import API_URL from "@/utils/api-url";
 
 const validationSchema = z.object({
   nama: z.string().min(1, "Nama daerah harus diisi"),
@@ -40,7 +41,7 @@ export default function AddDaerah({ setAddDaerah, setData }) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/daerah",
+        `${API_URL}/api/daerah`,
         {
           nama: data.nama,
         },

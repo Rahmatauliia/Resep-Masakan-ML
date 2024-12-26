@@ -3,6 +3,7 @@
 import axios from "axios";
 import EditResep from "./editResep";
 import { useEffect, useState } from "react";
+import API_URL from "@/utils/api-url";
 
 export default function EditResepPage({ params }) {
   const [data, setData] = useState([]);
@@ -12,13 +13,13 @@ export default function EditResepPage({ params }) {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/resep/" + params.id
+        `${API_URL}/api/resep/${params.id}`
       );
       const responseKategori = await axios.get(
-        "http://127.0.0.1:8000/api/kategori"
+        `${API_URL}/api/kategori`
       );
       const responseDaerah = await axios.get(
-        "http://127.0.0.1:8000/api/daerah"
+        `${API_URL}/api/daerah`
       );
       console.log(response.data.data);
       setData(response.data.data);

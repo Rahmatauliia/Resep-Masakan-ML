@@ -1,4 +1,5 @@
 "use client";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { createContext, useState, useContext, useEffect } from "react";
@@ -20,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const checkUserLoggedIn = async () => {
     try {
       // Di sini Anda bisa melakukan pengecekan ke server atau local storage
-      const response = await axios.get("http://127.0.0.1:8000/api/user", {
+      const response = await axios.get(`${API_URL}/api/user`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessTokenResep")}`,
         },
@@ -39,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (user) => {
     // Di sini Anda bisa menambahkan logika autentikasi ke server
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/login",
+      `${API_URL}/api/login`,
       {
         email: user.email,
         password: user.password,
@@ -64,7 +65,7 @@ export const AuthProvider = ({ children }) => {
   // Fungsi untuk register
   const register = async (user) => {
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/register",
+      `${API_URL}/api/register`,
       {
         name: user.name,
         email: user.email,
@@ -92,7 +93,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/logout",
+        `${API_URL}/api/logout`,
         {},
         {
           headers: {

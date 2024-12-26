@@ -25,6 +25,7 @@ import axios from "axios";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
 import AddDaerah from "./addDaerah";
 import EditDaerah from "./editDaerah";
+import API_URL from "@/utils/api-url";
 
 export const DaerahContext = createContext();
 
@@ -40,7 +41,7 @@ export function DataTable({ columns }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/daerah");
+        const response = await axios.get(`${API_URL}/api/daerah`);
         setData(response.data.data);
       } catch (error) {
         console.log(error);

@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/context/AuthContext";
 import MySwal from "@/lib/sweetAlert";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useState } from "react";
 import { FaBan, FaSave } from "react-icons/fa";
@@ -15,7 +16,7 @@ export default function ChangeName({ setEditUsername }) {
         e.preventDefault()
 
         try {
-            const res = await axios.post('http://localhost:8000/api/change-name', {
+            const res = await axios.post(`${API_URL}/api/change-name`, {
                 name
             }, {
                 headers: {

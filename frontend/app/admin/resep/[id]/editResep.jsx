@@ -27,6 +27,7 @@ import axios from "axios";
 import MySwal from "@/lib/sweetAlert";
 
 import generateConfig from "@/lib/configTiptap";
+import API_URL from "@/utils/api-url";
 
 const MAX_FILE_SIZE = 5000000;
 const ACCEPTED_IMAGE_TYPES = [
@@ -114,7 +115,7 @@ export default function EditResep({ resep, dataKategori, dataDaerah }) {
         formData.append("gambar", data.gambar);
       }
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/resep/" + resep.id,
+        `${API_URL}/api/resep/${resep.id}`,
         formData,
         {
           headers: {
@@ -208,7 +209,7 @@ export default function EditResep({ resep, dataKategori, dataDaerah }) {
             <FormItem>
               <FormLabel>Gambar</FormLabel>
               <Image
-                src={`http://127.0.0.1:8000/storage/images/${resep.gambar}`}
+                src={`${API_URL}/storage/images/${resep.gambar}`}
                 alt="Gambar Resep"
                 width={200}
                 height={200}

@@ -5,24 +5,25 @@ import CardDaerah from "../components/CardDaerah";
 import Footer from "../components/Footer";
 import axios from "axios";
 import Rekomendasi from "./rekomendasi";
+import API_URL from "@/utils/api-url";
 
 export default async function Home() {
-  const responseResep = await fetch("http://127.0.0.1:8000/api/resep", {
+  const responseResep = await fetch(`${API_URL}/api/resep`, {
     cache: "no-store",
   });
   const responseResepTerbaru = await fetch(
-    "http://127.0.0.1:8000/api/resep?latest&limit=5",
+    `${API_URL}/api/resep?latest&limit=5`,
     {
       cache: "no-store",
     }
   );
   const reseposeResepFavorite = await fetch(
-    "http://127.0.0.1:8000/api/resep?favorite&limit=10"
+    "${API_URL}/api/resep?favorite&limit=10"
   );
-  const responseDaerah = await fetch("http://127.0.0.1:8000/api/daerah", {
+  const responseDaerah = await fetch(`${API_URL}/api/daerah`, {
     cache: "no-store",
   });
-  const responseBanner = await fetch("http://127.0.0.1:8000/api/banner", {
+  const responseBanner = await fetch(`${API_URL}/api/banner`, {
     cache: "no-store",
     headers: {
       "Content-Type": "application/json",

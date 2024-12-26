@@ -1,6 +1,7 @@
 'use client'
 
 import MySwal from "@/lib/sweetAlert";
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import { useState } from "react";
 import { FaBan, FaRegEye, FaRegEyeSlash, FaSave } from "react-icons/fa";
@@ -19,7 +20,7 @@ export default function ChangePassword({ setEditPassword }) {
 
         console.log(password, newPassword, passwordConfirmation)
         try {
-            const res = await axios.post('http://localhost:8000/api/change-password', {
+            const res = await axios.post(`${API_URL}/api/change-password`, {
                 password,
                 'new_password': newPassword,
                 'new_password_confirmation': passwordConfirmation

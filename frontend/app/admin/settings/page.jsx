@@ -1,5 +1,6 @@
 'use client'
 
+import API_URL from "@/utils/api-url";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -14,7 +15,7 @@ export default function KategoriPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/banner', {
+        const response = await axios.get(`${API_URL}/api/banner`, {
           headers: {
             Authorization: `Bearer ${window.localStorage.getItem('accessTokenResep')}`,
           }
@@ -32,7 +33,7 @@ export default function KategoriPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/api/banner', {
+      const response = await axios.post(`${API_URL}/api/banner`, {
         image
       }, {
         headers: {
@@ -54,7 +55,7 @@ export default function KategoriPage() {
   const handleDelete = async (id) => {
     setLoading(true)
     try {
-      const response = await axios.delete('http://localhost:8000/api/banner/' + id, {
+      const response = await axios.delete(`${API_URL}/api/banner/${id}`, {
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem('accessTokenResep')}`,
         }
@@ -77,7 +78,7 @@ export default function KategoriPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.map((item) => (
             <div className="" key={item.id}>
-              <Image src={`http://127.0.0.1:8000/storage/${item.image_url}`} alt="mie-aceh" width={1000} height={500} className="w-full h-[200px] object-fill" />
+              <Image src={`${API_URL}/storage/${item.image_url}`} alt="mie-aceh" width={1000} height={500} className="w-full h-[200px] object-fill" />
               <button className="bg-red-500 text-white flex items-center justify-center mx-auto mt-4 w-8 h-8 rounded-md hover:bg-red-600" onClick={() => handleDelete(item.id)}><FaTrash /></button>
             </div>
           ))}

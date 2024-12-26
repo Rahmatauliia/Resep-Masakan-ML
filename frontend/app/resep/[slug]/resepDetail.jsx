@@ -8,6 +8,7 @@ import axios from "axios";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useAuth } from "@/context/AuthContext";
 import MySwal from "@/lib/sweetAlert";
+import API_URL from "@/utils/api-url";
 
 export default function ResepDetail({ resep }) {
   const bahan = useMemo(() => {
@@ -30,7 +31,7 @@ export default function ResepDetail({ resep }) {
       if (user) {
         try {
           const favorite = await axios.get(
-            "http://127.0.0.1:8000/api/favorituser/" + resep.id,
+            `${API_URL}/api/favorituser/${resep.id}`,
             {
               headers: {
                 Authorization: `Bearer ${window.localStorage.getItem(
@@ -49,7 +50,7 @@ export default function ResepDetail({ resep }) {
       } else {
         try {
           const favorite = await axios.get(
-            "http://127.0.0.1:8000/api/favorit/" + resep.id
+            `${API_URL}/api/favorit/${resep.id}`
           );
           setLike(false);
           setFavoriteCount(favorite.data.jumlah_favorit);
@@ -76,7 +77,7 @@ export default function ResepDetail({ resep }) {
     setLike((prev) => !prev);
     setFavoriteCount((prev) => (prev += like ? -1 : 1));
     await axios.post(
-      "http://127.0.0.1:8000/api/favorit",
+      `${API_URL}/api/favorit`,
       {
         id_resep: resep.id,
       },
@@ -97,7 +98,7 @@ export default function ResepDetail({ resep }) {
       {loading && <LoadingScreen />}
       <div className="w-full h-60 relative">
         <Image
-          src={`http://127.0.0.1:8000/storage/images/${resep.gambar}`}
+          src={`${API_URL}/storage/images/${resep.gambar}`}
           alt="mie aceh"
           fill
           className="mx-auto object-contain w-full h-full"

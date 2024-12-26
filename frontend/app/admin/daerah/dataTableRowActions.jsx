@@ -10,6 +10,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
 import { DaerahContext } from "./data-table";
+import API_URL from "@/utils/api-url";
 
 export default function DataTableRowActions({ row }) {
   const { setEditDaerah, setDataEditDaerah, setAddDaerah, setRefresh } =
@@ -27,7 +28,7 @@ export default function DataTableRowActions({ row }) {
     }).then(async (result) => {
       if (result.isConfirmed) {
         await axios.delete(
-          `http://127.0.0.1:8000/api/daerah/${row.original.id}`
+          `${API_URL}/api/daerah/${row.original.id}`
         );
         MySwal.fire({
           title: "Berhasil",

@@ -9,6 +9,7 @@ import MySwal from "@/lib/sweetAlert";
 import axios from "axios";
 import { useContext } from "react";
 import { RefreshDataTableContext } from "@/context/RefreshDataTableContext";
+import API_URL from "@/utils/api-url";
 
 export default function DataTableRowActions({ row }) {
   const { setRefresh, setLoading } = useContext(RefreshDataTableContext);
@@ -26,7 +27,7 @@ export default function DataTableRowActions({ row }) {
       if (result.isConfirmed) {
         setLoading(true);
         await axios.delete(
-          `http://127.0.0.1:8000/api/resep/${row.original.id}`
+          `${API_URL}/api/resep/${row.original.id}`
         );
         MySwal.fire({
           title: "Berhasil",

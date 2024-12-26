@@ -1,27 +1,29 @@
+import API_URL from "@/utils/api-url";
+
 export default async function DashboardPage() {
   const fetchTotalResep = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/resep', {
+    const response = await fetch(`${API_URL}/api/resep`, {
       cache: "no-store",
     })
     const responseResepJson = await response.json();
     return responseResepJson?.data?.length
   }
   const fetchTotalUser = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/total-user', {
+    const response = await fetch(`${API_URL}/api/total-user`, {
       cache: "no-store",
     })
     const responseJson = await response.json();
     return responseJson?.total;
   }
   const fetchTotalDaerah = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/daerah', {
+    const response = await fetch(`${API_URL}/api/daerah`, {
       cache: "no-store",
     })
     const responseJson = await response.json();
     return responseJson?.data?.length;
   }
   const fetchTotalKategori = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/kategori', {
+    const response = await fetch(`${API_URL}/api/kategori`, {
       cache: "no-store",
     })
     const responseJson = await response.json();

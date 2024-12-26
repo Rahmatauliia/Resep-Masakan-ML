@@ -6,6 +6,7 @@ import { Navigation, A11y, Autoplay, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css/bundle";
 import Image from "next/image";
+import API_URL from "@/utils/api-url";
 export default function Header({ banner }) {
   console.log(banner)
   return (
@@ -30,7 +31,7 @@ export default function Header({ banner }) {
             {banner.map((item) => (
               <SwiperSlide key={item.id}>
                 <Image
-                  src={`http://127.0.0.1:8000/storage/${item.image_url}`}
+                  src={`${API_URL}/storage/${item.image_url}`}
                   alt="gambar banner"
                   width={1000}
                   height={500}
