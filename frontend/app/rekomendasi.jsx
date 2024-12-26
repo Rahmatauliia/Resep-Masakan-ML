@@ -14,17 +14,18 @@ export default function Rekomendasi({ data }) {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `${API_URL}:5000/products?usr=${user.id}`
+            `${API_URL}/products?usr=${user.id}`
           );
           setReseps(response.data.data);
           console.log(response.data);
         } catch (error) {
-          //
+          setReseps([]);
         }
       };
       fetchData();
+    } else {
+      setReseps(data);
     }
-    setReseps(data);
   }, [user]);
 
   return (
