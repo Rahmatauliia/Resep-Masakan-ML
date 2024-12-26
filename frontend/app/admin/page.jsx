@@ -8,21 +8,21 @@ export default async function DashboardPage() {
   }
   const fetchTotalUser = async () => {
     'use server'
-    const response = await fetch('http://127.0.0.1:8000/api/total-user')
+    const response = await fetch('http://localhost:8000/api/total-user')
     const responseJson = await response.json();
     console.log(responseJson)
     // return responseJson?.total;
   }
   const fetchTotalDaerah = async () => {
     'use server'
-    const response = await fetch('http://127.0.0.1:8000/api/daerah')
+    const response = await fetch('http://localhost:8000/api/daerah')
     const responseJson = await response.json();
     console.log(responseJson)
     // return responseJson?.data?.length;
   }
   const fetchTotalKategori = async () => {
     'use server'
-    const response = await fetch('http://127.0.0.1:8000/api/kategori')
+    const response = await fetch('http://localhost:8000/api/kategori')
     const responseJson = await response.json();
     // return responseJson?.data?.length;
   }
