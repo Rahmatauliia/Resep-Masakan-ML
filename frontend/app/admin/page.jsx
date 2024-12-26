@@ -3,25 +3,25 @@ export default async function DashboardPage() {
     'use server'
     const response = await fetch('http://127.0.0.1:8000/api/resep')
     const responseResepJson = await response.json();
-    return responseResepJson.data.length
+    return responseResepJson?.data?.length
   }
   const fetchTotalUser = async () => {
     'use server'
     const response = await fetch('http://127.0.0.1:8000/api/total-user')
     const responseJson = await response.json();
-    return responseJson.total;
+    return responseJson?.total;
   }
   const fetchTotalDaerah = async () => {
     'use server'
     const response = await fetch('http://127.0.0.1:8000/api/daerah')
     const responseJson = await response.json();
-    return responseJson.data.length;
+    return responseJson?.data?.length;
   }
   const fetchTotalKategori = async () => {
     'use server'
     const response = await fetch('http://127.0.0.1:8000/api/kategori')
     const responseJson = await response.json();
-    return responseJson.data.length;
+    return responseJson?.data?.length;
   }
 
   const totalResep = await fetchTotalResep()
