@@ -14,7 +14,7 @@ export default function Rekomendasi({ data }) {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `${API_URL}/products?usr=${user.id}`
+            `https://flask.rahmataulia.my.id/products?usr=${user.id}`
           );
           setReseps(response.data.data);
           console.log(response.data);
