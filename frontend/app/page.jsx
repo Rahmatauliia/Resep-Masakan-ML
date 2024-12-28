@@ -18,7 +18,7 @@ export default async function Home() {
     }
   );
   const reseposeResepFavorite = await fetch(
-    "${API_URL}/api/resep?favorite&limit=10"
+    `${API_URL}/api/resep?favorite&limit=10`
   );
   const responseDaerah = await fetch(`${API_URL}/api/daerah`, {
     cache: "no-store",
